@@ -61,7 +61,7 @@ var gameOver = function () {
 };
 
 var getChoice = function () {
-    return prompt('What will you do?  Run or Fight').toLowerCase().trim();
+    return prompt('Remaing Health: '+ hero.life + '\n What will you do?  \nRun or Fight').toLowerCase().trim();
 };
 
 var impsStatus = function () {
