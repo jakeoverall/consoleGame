@@ -129,4 +129,4 @@ var play = function () {
         }
     }
 };
-play();
+console.log('To get started simple type in play()');
