@@ -84,7 +84,8 @@ var play = function () {
     console.log('* Your name is ' + hero.name + '. You are traveling accross the country when.... *');
     console.log('**********************************************************************************')
     while (on) {
-        console.log(hero.name + " encounters " + imps.length + " imps. \"Renowned " + hero.name + "\" a remakably ugly imp growls. \"today you will meet your doom.\"");
+        console.log(hero.name + " encounters " + imps.length + " imps.")
+        console.log("Look what we have here... it is The Renowned " + hero.name + "\" a remakably ugly imp growls. \"today you will meet your doom.\"");
 
         while (imps.length > 0 && hero.life > 0) {
             if (hero.life <= 0) {
@@ -93,7 +94,7 @@ var play = function () {
             }
             choice = getChoice();
             if (choice === "fight") {
-                if (confirm("Are you sure? You will have to kill all " + imps.length + " Imps to survive.")) {
+                if (confirm("Are you sure? You will have to kill all " + imps.length + " remaining Imps to survive.")) {
                     fighting();
                     hero.attack(imps[0]);
                     impsStatus();
@@ -102,7 +103,6 @@ var play = function () {
                 console.log("While running you lost 10 life.");
                 hero.life -= 10;
                 getStatus();
-
             } else if (choice === "drink potion") {
                 if (hero.potion) {
                     hero.life += 35;
@@ -112,9 +112,8 @@ var play = function () {
                     console.log("You don't have any");
                 }
             } else if (choice === "give up") {
-                console.log("Your insulance is unbearable you did not type either of the choices and will therefore die. Goodbye " + hero.name);
-                gameOver();
-                break;
+                console.log("Your insulance is unbearable you will therefore die. Goodbye " + hero.name);
+                return gameOver();
             } else {
                 console.log("Make a valid choice or type Give Up");
             }
