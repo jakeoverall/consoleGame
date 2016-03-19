@@ -61,7 +61,8 @@ var gameOver = function () {
 };
 
 var getChoice = function () {
-    return prompt('Remaing Health: '+ hero.life + '\n What will you do?  \nRun or Fight').toLowerCase().trim();
+    console.log(hero.name + " is attacking " + enemy.species + " with his " + hero.weapon + " for " + hero.attackDamage + " life.");
+    return prompt(hero.name + ' Health: '+ hero.life + '\nAttacking: '+ imps[0].species +' Health: '+ imps[0].life +'\n\nWhat will you do?  \nRun or Fight').toLowerCase().trim();
 };
 
 var impsStatus = function () {
