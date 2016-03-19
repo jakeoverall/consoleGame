@@ -61,7 +61,7 @@ var gameOver = function () {
 };
 
 var getChoice = function () {
-    return prompt('What will you do?  Run or Fight');
+    return prompt('What will you do?  Run or Fight').toLowerCase().trim();
 };
 
 var impsStatus = function () {
@@ -80,6 +80,9 @@ var impsStatus = function () {
 
 var play = function () {
     setup();
+    console.log('**********************************************************************************')
+    console.log('* Your name is ' + hero.name + '. You are traveling accross the country when.... *');
+    console.log('**********************************************************************************')
     while (on) {
         console.log(hero.name + " encounters " + imps.length + " imps. \"Renowned " + hero.name + "\" a remakably ugly imp growls. \"today you will meet your doom.\"");
 
@@ -89,18 +92,18 @@ var play = function () {
                 break;
             }
             choice = getChoice();
-            if (choice === "Fight") {
+            if (choice === "fight") {
                 if (confirm("Are you sure? You will have to kill all " + imps.length + " Imps to survive.")) {
                     fighting();
                     hero.attack(imps[0]);
                     impsStatus();
                 }
-            } else if (choice === "Run") {
+            } else if (choice === "run") {
                 console.log("While running you lost 10 life.");
                 hero.life -= 10;
                 getStatus();
 
-            } else if (choice === "Drink Potion") {
+            } else if (choice === "drink potion") {
                 if (hero.potion) {
                     hero.life += 35;
                     getStatus();
@@ -108,7 +111,7 @@ var play = function () {
                 } else {
                     console.log("You don't have any");
                 }
-            } else if (choice === "Give up") {
+            } else if (choice === "give up") {
                 console.log("Your insulance is unbearable you did not type either of the choices and will therefore die. Goodbye " + hero.name);
                 gameOver();
                 break;
@@ -118,15 +121,19 @@ var play = function () {
         }
 
         if (hero.life > 0) {
-            hero.reputation += 133425;
-            console.log("You have slain another band of filthy imps. Your reputation grows \n Reputation: " + hero.reputation);
-            console.log("You WON!!!!!");
+            hero.reputation += 133;
+            
+            console.log('**********************************************************************************')
+            console.log("* Congrats You WON!!!!!                                                          *");
+            console.log("* You have slain another band of filthy imps. Your reputation grows              *");
+            console.log('**********************************************************************************')
             on = false;
         } else {
             console.log("Tonight the Imps will feast upon " + hero.name);
             on = false;
             gameOver();
+            console.log('To try again type play()');
         }
     }
 };
-play();
+console.log('To start the game type play()');
