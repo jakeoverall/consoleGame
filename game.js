@@ -61,7 +61,6 @@ var gameOver = function () {
 };
 
 var getChoice = function () {
-    console.log(hero.name + " is attacking " + enemy.species + " with his " + hero.weapon + " for " + hero.attackDamage + " life.");
     return prompt(hero.name + ' Health: '+ hero.life + '\nAttacking: '+ imps[0].species +' Health: '+ imps[0].life +'\n\nWhat will you do?  \nRun or Fight').toLowerCase().trim();
 };
 
@@ -73,8 +72,8 @@ var impsStatus = function () {
             console.log(hero.name + " has killed an imp. " + imps.length + " remaining.");
         }
         if (imps.length === 2) {
-            hero.potion = true;
-            console.log("An imp dropped a health potion be sure to \"Drink Potion\" to survive");
+            var pickup = confirm('An imp dropped a health potion be sure to \"Drink Potion\" to survive. Would you like to pick it up?')
+            hero.potion = pickup;
         }
     };
 };
