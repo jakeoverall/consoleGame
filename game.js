@@ -71,11 +71,11 @@ var impsStatus = function () {
             i--;
             console.log(hero.name + " has killed an imp. " + imps.length + " remaining.");
         }
-        if (imps.length === 2) {
-            var pickup = confirm('An imp dropped a health potion be sure to \"Drink Potion\" to survive. Would you like to pick it up?')
-            hero.potion = pickup;
-        }
     };
+    if (imps.length === 2) {
+        var pickup = confirm('An imp dropped a health potion be sure to \"Drink Potion\" to survive. Would you like to pick it up?')
+        hero.potion = pickup;
+    }
 };
 
 var play = function () {
